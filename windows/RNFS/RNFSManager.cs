@@ -109,7 +109,7 @@ namespace RNFS
             try
             {
                 // TODO: open file on background thread?
-                using (var file = File.OpenWrite(filepath))
+                using (var file = File.Open(filepath, FileMode.Create))
                 {
                     var data = Convert.FromBase64String(base64Content);
                     await file.WriteAsync(data, 0, data.Length).ConfigureAwait(false);
